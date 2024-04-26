@@ -5,13 +5,29 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- Spring Security HTTP 요청 설정 -->
 	<security:http>
+		<!-- 모든 사용자가 접근 가능한 URL -->
+		<security:intercept-url pattern="/sample/all" access="permitAll"/>
+		<!-- 회원 이상의 권한을 가진 사용자만 접근 가능한 URL -->
+		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
+		<!-- 관리자 권한을 가진 사용자만 접근 가능한 URL -->
+		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
 		<!-- 폼 기반 로그인 설정 -->
 		<security:form-login />
 	</security:http>
 
 	<!-- Spring Security 인증 관리자 설정 -->
 	<security:authentication-manager>
-
+		<!-- Spring Security 인증 제공자 설정 -->
+		<security:authentication-provider>
+			<!-- 사용자 서비스 설정 -->
+			<security:user-service>
+				<!-- 사용자 설정 : 이름, 권한, 비밀번호 -->
+				<!-- member 사용자는 ROLE_MEMBER 역할만 가지고 있다. -->
+				<security:user name="member" authorities="ROLE_MEMBER" password="{noop}1234" />
+				<!-- admin 사용자는 ROLE_MEMBER와 ROLE_ADMIN 역할을 가지고 있다. -->
+				<security:user name="admin" authorities="ROLE_ADMIN, ROLE_MEMBER" password="{noop}1234" />
+			</security:user-service>
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 </beans>
