@@ -12,6 +12,7 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
     "cSpell.words": [
+        "zerock",
         "zerok"
     ]
 }

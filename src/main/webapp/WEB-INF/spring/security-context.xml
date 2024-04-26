@@ -24,8 +24,11 @@
 		<!-- 접근 제한 인터페이스를 직접구현 페이지 설정 -->
 		<security:access-denied-handler ref="customAccessDenied"/>
 
+
 		<!-- 폼 기반 로그인 설정 -->
-		<security:form-login />
+		<!-- <security:form-login /> -->
+		<!-- 사용자 정의 로그인 페이지를 사용하여 폼 기반 인증 설정 -->
+		<security:form-login login-page="/customLogin"/>
 	</security:http>
 
 	<!-- Spring Security 인증 관리자 설정 -->
