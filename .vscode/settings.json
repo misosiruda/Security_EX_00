@@ -12,6 +12,9 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
     "cSpell.words": [
+        "pstmt",
+        "userid",
+        "userpw",
         "zerock",
         "zerok"
     ]
