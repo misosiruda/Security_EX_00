@@ -18,7 +18,7 @@ public class CommonController {
         model.addAttribute("msg", "Access Denied");
     }
 
-    @GetMapping("customLogin")
+    @GetMapping("/customLogin")
     public void loginInput(String error, String logout, Model model) {
         log.info("error : " + error);
         log.info("logout : " + logout);
@@ -29,6 +29,11 @@ public class CommonController {
         if (logout != null) {
             model.addAttribute("logout", "Logout");
         }
+    }
+
+    @GetMapping("/customLogout")
+    public void logoutGET() {
+        log.info("custom logout");
     }
 
 }

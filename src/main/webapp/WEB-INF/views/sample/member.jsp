@@ -9,6 +9,7 @@
 <body>
 
 <h1>member.jsp</h1>
+	<a href="/customLogout">Logout</a>
 
 </body>
 </html>
